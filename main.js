@@ -13,7 +13,6 @@ const PIXEL_ITEMS = numberDiv ();
 
 function setColor (element) {
     element.style.backgroundColor = colors
-
 }
 
 for(let i=0; i < PIXEL_ITEMS; i++) {
@@ -21,13 +20,35 @@ for(let i=0; i < PIXEL_ITEMS; i++) {
             let pixel = document.createElement('div')
             pixel.classList.add('pixel_div')
 
+            // pixel.addEventListener('mousedown', mousedown)
+            // pixel.addEventListener('mouseover', mouseover)
+            
+            function Click () {                         //нажатие 
             pixel.addEventListener('mousedown', () =>
-                setColor(pixel))
-        
+            Keep (),
+            console.log('1'))
+            }
+            
+            function Keep () {                         //провести
+            pixel.addEventListener('mouseover', () =>
+            setColor(pixel))
+            console.log('2')
+            }
+
+            Keep ()
+
+            
+
+            // pixel.addEventListener('mousedown', () =>
+            //     Click (),
+            //     console.log('2')
+            //     )
+                
+
             fieldDrawing.append(pixel)
     }
 
-
+//нажатие, а потом передвижение
 
 //добавить общее поле для рисования
 //туда сгенерировать micro div для изменения цвета
