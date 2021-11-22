@@ -1,0 +1,21 @@
+
+  
+.container{
+    max-width: 80vw;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+.field{
+    height: 80vh;
+    border: solid 5px;
+    
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+.pixel_div{
+    width: 10px;
+    height: 10px;
+}
