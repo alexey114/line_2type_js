@@ -3,8 +3,10 @@ const widthField = document.querySelector('#field').offsetWidth;
 const heightField = document.querySelector('#field').offsetHeight;
 const colors = ['#992828']
 
+draw = false;
+
 function numberDiv () {
-    const PIXEL = (widthField * heightField)/100
+    const PIXEL = Math.ceil(Math.ceil(widthField * heightField)/25)
     return PIXEL
 }
 numberDiv ()
@@ -15,42 +17,30 @@ function setColor (element) {
     element.style.backgroundColor = colors
 }
 
-for(let i=0; i < PIXEL_ITEMS; i++) {
+    for(let i=0; i < PIXEL_ITEMS; i++) {
 
             let pixel = document.createElement('div')
             pixel.classList.add('pixel_div')
 
-            // pixel.addEventListener('mousedown', mousedown)
-            // pixel.addEventListener('mouseover', mouseover)
-            
-            function Click () {                         //нажатие 
-            pixel.addEventListener('mousedown', () =>
-            Keep (),
-            console.log('1'))
-            }
-            
-            function Keep () {                         //провести
-            pixel.addEventListener('mouseover', () =>
-            setColor(pixel))
-            console.log('2')
+            pixel.addEventListener('mousedown', mousedown)
+            pixel.addEventListener('mousemove', mousemove)
+            pixel.addEventListener('mouseup', mouseup)
+
+            function mousedown (event) {
+                draw = true
+                setColor(pixel)
             }
 
-            Keep ()
+            function mousemove() {
+                if(draw == true) {
+                    setColor(pixel)
+                }
+            }
 
-            
-
-            // pixel.addEventListener('mousedown', () =>
-            //     Click (),
-            //     console.log('2')
-            //     )
-                
+            function mouseup () {
+                draw = false;
+            }
 
             fieldDrawing.append(pixel)
     }
 
-//нажатие, а потом передвижение
-
-//добавить общее поле для рисования
-//туда сгенерировать micro div для изменения цвета
-//далее контролируя движение курсора заменять цвета при нажатии с сохранением цвета
-//количество генерируемых div должно быть кратно *ширины и длинны
