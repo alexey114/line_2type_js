@@ -1,7 +1,8 @@
 const fieldDrawing = document.querySelector('#field');
 const widthField = document.querySelector('#field').offsetWidth;
 const heightField = document.querySelector('#field').offsetHeight;
-const colors = ['#992828']
+const colors = ['#992828'];
+const arrDiv = [];
 
 draw = false;
 
@@ -23,15 +24,16 @@ function setColor (element) {
             pixel.classList.add('pixel_div')
 
             pixel.addEventListener('mousedown', mousedown)
-            pixel.addEventListener('mousemove', mousemove)
+            pixel.addEventListener('mouseover', mouseover)
             pixel.addEventListener('mouseup', mouseup)
 
             function mousedown (event) {
+                let ClientRect = this.getBoundingClientRect();
                 draw = true
                 setColor(pixel)
             }
 
-            function mousemove() {
+            function mouseover() {
                 if(draw == true) {
                     setColor(pixel)
                 }
@@ -43,4 +45,3 @@ function setColor (element) {
 
             fieldDrawing.append(pixel)
     }
-
